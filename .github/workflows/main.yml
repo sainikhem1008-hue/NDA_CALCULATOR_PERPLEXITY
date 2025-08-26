@@ -24,13 +24,13 @@ jobs:
     - name: Run analyzer
       run: flutter analyze
 
-  
+    
 
     - name: Build APK
       run: flutter build apk --release
 
     - name: Upload APK Artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: nda-calculator-apk
         path: build/app/outputs/flutter-apk/app-release.apk
