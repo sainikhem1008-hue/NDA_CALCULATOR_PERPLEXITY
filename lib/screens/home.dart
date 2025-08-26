@@ -141,14 +141,14 @@ class _HomeScreenState extends State<HomeScreen> {
     final pdf = pw.Document();
     pdf.addPage(
       pw.Page(
-          build: (context) => pw.Column(
+          build: (pw.Context context) => pw.Column(
                 crossAxisAlignment: pw.CrossAxisAlignment.start,
                 children: [
                   pw.Text('Night Duty Allowance Details', style: const pw.TextStyle(fontSize: 20)),
                   pw.SizedBox(height: 10),
                   pw.Text('Duty Date: ${dutyDate != null ? dateFormat.format(dutyDate!) : '-'}'),
-                  pw.Text('From Time: ${fromTime?.format(context) ?? '-'}'),
-                  pw.Text('To Time: ${toTime?.format(context) ?? '-'}'),
+                  pw.Text('From Time: ${fromTime?.format(this.context) ?? '-'}'),
+                  pw.Text('To Time: ${toTime?.format(this.context) ?? '-'}'),
                   pw.Text('Basic Pay: ${basicPayController.text}'),
                   pw.Text('Dearness Allowance (%): ${daController.text}'),
                   pw.Text('Holiday: ${isHoliday ? "Yes" : "No"}'),
@@ -243,7 +243,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              style: ElevatedButton.styleFrom(primary: Colors.green),
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
               onPressed: calculate,
               child: const Text('Calculate Allowance'),
             ),
@@ -264,17 +264,17 @@ class _HomeScreenState extends State<HomeScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.green),
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                   onPressed: exportPdf,
                   child: const Text('Export PDF'),
                 ),
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.green),
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                   onPressed: clearAll,
                   child: const Text('Clear All'),
                 ),
                 ElevatedButton(
-                  style: ElevatedButton.styleFrom(primary: Colors.green),
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.green),
                   onPressed: () => Navigator.of(context).maybePop(),
                   child: const Text('Exit'),
                 ),
